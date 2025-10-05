@@ -25,20 +25,6 @@
         }
     </style>
 
-    <div style="display:flex; flex-direction:column; align-items:center; gap:20px;">
-
-    <div style="display:flex; justify-content:center; gap:20px;">
-        <div data-banner-id="1466522"></div>
-        <div data-banner-id="1466523"></div>
-    </div>
-
-    <div style="display:flex; justify-content:center; gap:20px;">
-        <div data-banner-id="1466524"></div>
-        <div data-banner-id="1466525"></div>
-
-    </div>
-
-    </div>
     
 </head>
 
@@ -46,6 +32,18 @@
 
     <!-- Kontainer Utama -->
     <div class="flex flex-col items-center justify-center min-h-screen text-center p-4">
+
+        <!-- Kontainer Iklan Banner (dipindahkan dari head) -->
+        <div class="mb-8" style="display:flex; flex-direction:column; align-items:center; gap:20px;">
+            <div style="display:flex; justify-content:center; gap:20px;">
+                <div data-banner-id="1466522"></div>
+                <div data-banner-id="1466523"></div>
+            </div>
+            <div style="display:flex; justify-content:center; gap:20px;">
+                <div data-banner-id="1466524"></div>
+                <div data-banner-id="1466525"></div>
+            </div>
+        </div>
 
         <!-- Teks Atas -->
         <p class="text-lg text-gray-300 mb-4">
@@ -63,7 +61,7 @@
         </div>
 
         <!-- Tombol Aksi Utama -->
-        <a href="rewads.html"
+        <a href="#" id="tontonIklanBtn"
             class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-300 w-full max-w-sm">
             <!-- Ikon Play (SVG) -->
             <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -79,11 +77,30 @@
     <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="378325"></script>
     <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="378975"></script>
 
+    <!-- Script untuk memunculkan iklan ketika tombol di klik -->
+    <script>
+        document.getElementById('tontonIklanBtn').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah link berpindah halaman
+
+            // Buat elemen script baru untuk memuat iklan
+            const adScript = document.createElement('script');
+            adScript.async = true;
+            adScript.src = 'https://js.wpadmngr.com/static/adManager.js';
+            adScript.setAttribute('data-admpid', '379019');
+
+            // Tambahkan script ke body untuk memuat dan menampilkan iklan
+            document.body.appendChild(adScript);
+
+            // Ganti teks tombol untuk memberikan feedback ke pengguna
+            const buttonText = this.childNodes[this.childNodes.length - 1];
+            if (buttonText.nodeType === 3) { // Pastikan itu adalah teks
+                 buttonText.nodeValue = ' Memuat Iklan...';
+            }
+            this.classList.add('opacity-70', 'cursor-not-allowed');
+        });
+    </script>
 
 </body>
 
 </html>
-
-
-
 
