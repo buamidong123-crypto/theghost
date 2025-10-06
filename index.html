@@ -61,7 +61,7 @@
         </div>
 
         <!-- Tombol Aksi Utama -->
-        <a href="#" id="tontonIklanBtn"
+        <a href="rewads.html"
             class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-300 w-full max-w-sm">
             <!-- Ikon Play (SVG) -->
             <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -78,29 +78,10 @@
     <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="378975"></script>
 
     <!-- Script untuk memunculkan iklan ketika tombol di klik -->
-    <script>
-        document.getElementById('tontonIklanBtn').addEventListener('click', function(event) {
-            event.preventDefault(); // Mencegah link berpindah halaman
-
-            // Buat elemen script baru untuk memuat iklan
-            const adScript = document.createElement('script');
-            adScript.async = true;
-            adScript.src = 'https://js.wpadmngr.com/static/adManager.js';
-            adScript.setAttribute('data-admpid', '379019');
-
-            // Tambahkan script ke body untuk memuat dan menampilkan iklan
-            document.body.appendChild(adScript);
-
-            // Ganti teks tombol untuk memberikan feedback ke pengguna
-            const buttonText = this.childNodes[this.childNodes.length - 1];
-            if (buttonText.nodeType === 3) { // Pastikan itu adalah teks
-                 buttonText.nodeValue = ' Memuat Iklan...';
-            }
-            this.classList.add('opacity-70', 'cursor-not-allowed');
-        });
-    </script>
+   <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="379019"></script>
 
 </body>
 
 </html>
+
 
